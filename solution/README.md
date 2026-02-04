@@ -1,10 +1,14 @@
-# How to Solve the Challenge?
+The "Message" and "User" struct have the same format; and when a user disconnect, the User object is freed but the pointer is not deleted.
+When you send the next message, it gets allocated there instead; overwriting the "is_admin" flag with the "length" of the message.
 
-Provide reproducible steps to solve the challenge. This can include:
 
-- Runnable code (e.g., `PoC.py`)
-- A Bash script or a sequence of commented commands
-- Well-explained instructions
-- ...
+--> create user "hugo"
+--> create user "bob"
+--> disconnect "hugo" (ctrl + c)
+--> bob writes "hugo" --> gets allocated on heap instead of users
+--> hugo comes back with nickname hugo
+--> he is admin
+--> /flag
 
-Ensure that all dependencies required to build or run the solution are provided (e.g., `requirements.txt`) or thoroughly documented.
+Wait for all other users to stop talking makes it easier
+

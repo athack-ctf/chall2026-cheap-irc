@@ -3,31 +3,31 @@
 #########################################################################################################################
 
 # Use the official Python base image
-FROM python:3.10-slim
+FROM python:3.12-bookworm
 
-# Set the working directory
-WORKDIR /chall
 
 # Installing Flask
-RUN pip install Flask
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Create the example chall (chall.py)
-RUN echo "from flask import Flask\n\
-chall = Flask(__name__)\n\
-\n\
-@chall.route('/')\n\
-def hello():\n\
-    return 'Hello @Hack 2026!'\n\
-\n\
-if __name__ == '__main__':\n\
-    chall.run(host='0.0.0.0')" > chall.py
+# Install only what we need
+RUN apt-get update && apt-get install -y \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
 
-# Set environment vars
-ENV FLASK_APP=chall.py
-ENV FLASK_RUN_PORT=2026
+WORKDIR /chall
+
+COPY server.c .
+COPY flag.txt .
+COPY alice.py .
+COPY bob.py   .
+COPY run.sh   .
+
+RUN gcc -o server server.c
+RUN chmod +x run.sh
+
 
 # Expose the port that the chall will run on
-EXPOSE 2026
+EXPOSE 6667
 
 # Run the chall
-CMD ["flask", "run", "--host=0.0.0.0"]
+CMD ["./run.sh"]

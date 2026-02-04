@@ -1,10 +1,5 @@
 # Running Your Challenge
 
-Place all the code needed to run your challenge in this directory, and document the required environment as described
-below:
+Explicit; Dockerfile contains everything needed. run.sh is a script that maintains everything alive, and restarts everything if the server crashes (it will lol)
 
-- If you have included a `Dockerfile` and a `docker-compose.yml`, then that is all that should be enough (unless additional
-  explanations are needed as well).
-- If you have not, please document the steps to create a runnable instance of your challenge, as we (Alin and William)
-  will refer to this when adding the `Dockerfile` and `docker-compose.yml`
-- For any clarifications, consult us (Alin and William).
+server-debug.c contains a function to observe the heap content, useful for debugging the heap spray.

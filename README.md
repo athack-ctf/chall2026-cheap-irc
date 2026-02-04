@@ -1,6 +1,6 @@
-# Chall - Your Challenge Title
+# Chall - cHeap IRC
 
-> A brief description of the challenge
+> A cheap IRC server with a heap-spray / UAF bug.
 
 ## Challenge Type
 
@@ -9,35 +9,23 @@
 
 ## Design Type
 
-- [X] **Black**-Box
-- [ ] **White**-Box
+- [ ] **Black**-Box
+- [X] **White**-Box
 
 ## Designer(s)
 
-- Ada Lovelace
-- Barbara Liskov
+- Hugo Kermabon-Bobinnec
+
 
 ## Description
 
-A high-level overview intended to clarify the concept and intuition behind the challenge, outlining its educational
-goals and the skills it aims to test in participants.
+A cheap IRC server with a heap-spray / UAF bug.
 
-**IMPORTANT:** This description will **NOT** be shared with participants.
 
 ## Category(ies)
 
 - `pwn`
-- `re`
-- `web`
-- `stegano`
-- `env`
-- `crypto`
-- `osint`
-- `web3`
-- `ai`
-- `android`
-- `auto`
-- `misc`
+
 
 ---
 
