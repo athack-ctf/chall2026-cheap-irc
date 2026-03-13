@@ -1,10 +1,11 @@
-#########################################################################################################################
-# TODO: REPLACE THE CONTENT OF THIS FILE WITH YOUR OWN.
-#########################################################################################################################
+name: chall2026-cheap-irc
 
 services:
-  web:
-    build: .
-    image: chall2026-online-chall
+  cheap-irc:
+    image: athack-ctf/chall2026-cheap-irc:latest
+    container_name: chall2026-cheap-irc
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "2026:2026"
+      - "2026:6667"
