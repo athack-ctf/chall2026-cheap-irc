@@ -1,0 +1,11 @@
+name: chall2026-cheap-irc
+
+services:
+  cheap-irc:
+    image: athack-ctf/chall2026-cheap-irc:latest
+    container_name: chall2026-cheap-irc
+    build:
+      context: .
+      dockerfile: source/Dockerfile
+    ports:
+      - "53002:6667"
